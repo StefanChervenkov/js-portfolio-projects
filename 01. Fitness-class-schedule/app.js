@@ -113,6 +113,19 @@ function solve() {
         const confirmBtn = document.createElement('button');
         confirmBtn.textContent = 'Confirm';
         confirmBtn.classList.add('confirm-btn');
+        confirmBtn.addEventListener('click', () => {
+            const bodyEl = document.querySelector('#body');
+            bodyEl.querySelector('#main').remove();
+            const finalHeadingEl = document.createElement('h1');
+            finalHeadingEl.textContent = 'Thank you for scheduling your appointment, we look forward to seeing you!';
+            const doneBtn = document.createElement('button');
+            doneBtn.id = 'done-btn';
+            doneBtn.textContent = 'Done';
+            doneBtn.addEventListener('click', () => {location.reload()});
+
+            bodyEl.appendChild(finalHeadingEl);
+            bodyEl.appendChild(doneBtn);
+        })
 
         confirmListEl.appendChild(cancelBtn);
         confirmListEl.appendChild(confirmBtn);
