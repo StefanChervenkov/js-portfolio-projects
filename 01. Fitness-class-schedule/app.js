@@ -34,13 +34,22 @@ function solve() {
         articleEl.appendChild(createParagraph(classTypeInputEl));
         articleEl.appendChild(createParagraph(classTimeInputEl));
         
+        //create the edit and continue buttons 
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.classList.add('edit-btn');
+
+        const continueBtn = document.createElement('button');
+        continueBtn.textContent = 'Continue';
+        continueBtn.classList.add('continue-btn');
+
         // append the article element to the list element
         listEl.appendChild(articleEl);
+        //append the buttons to the list element
+        listEl.appendChild(editBtn);
+        listEl.appendChild(continueBtn);
         // append the list element to the previewListEl
-        previewListEl.appendChild(listEl);
-
-        console.log(previewListEl);
-        
+        previewListEl.appendChild(listEl); 
 
         //clear the input fields once the preview has been created
         nameInputEl.value = '';
@@ -49,6 +58,8 @@ function solve() {
         classTypeInputEl.value = '';
         classTimeInputEl.value = '';
 
+        // disable the next button
+        document.querySelector('#next-btn').disabled = true;
 
 
 
